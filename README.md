@@ -37,3 +37,5 @@ Please do not overcomplicate the code. You don’t need a web framework, databas
 ## How to run Binary
 * make sure you have data.json on same level as main.go
 * go run main.go
+* you can supply a custom data json file using go run main.go -file=data.json if file is not availble program will exit
+* reading today date and returing all the records with birthday matching todays date. We can later take date from user in case they want to get a list against any date. Core service layer does support this and you can see in tests I am matching past and future dates.
