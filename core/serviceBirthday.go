@@ -1,6 +1,7 @@
 package core
 
 type Birthday struct {
+	repo Repo
 }
 
 type Repo interface {
@@ -8,7 +9,7 @@ type Repo interface {
 }
 
 func NewBirthDay(repo Repo) *Birthday {
-	return &Birthday{}
+	return &Birthday{repo: repo}
 }
 
 func (s *Birthday) ListBirthdays(forDate Dob) []Person {

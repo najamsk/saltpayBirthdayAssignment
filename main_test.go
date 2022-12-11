@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestBirthdayServiceListBirthdays(t *testing.T) {
+func TestBirthdayService_WithRealRepoListBirthdays(t *testing.T) {
 	r, err := data.NewRepo()
 	if err != nil {
 		t.Error("cant even create repo")
