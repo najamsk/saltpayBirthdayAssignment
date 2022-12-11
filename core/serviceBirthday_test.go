@@ -48,9 +48,9 @@ func TestListBirthDays(t *testing.T) {
 	// NonLeapYear29Feb := []data.Person{}
 
 	tcs := []TestCase{
-		{"29FebWithLeapYear", Dob{Year: 2024, Month: 02, Day: 29, IsLeap: IsLeapYear(2024)}, People29Feb},
-		{"28FebWithNormalYear", Dob{Year: 2022, Month: 02, Day: 28, IsLeap: IsLeapYear(2022)}, People28FebWithNormalYear},
-		{"28FebWithLeapYear", Dob{Year: 2020, Month: 02, Day: 28, IsLeap: IsLeapYear(2020)}, People28FebWithLeapYear},
+		{"29Feb With Leap Year", Dob{Year: 2024, Month: 02, Day: 29, IsLeap: IsLeapYear(2024)}, People29Feb},
+		{"28Feb With Normal Year", Dob{Year: 2022, Month: 02, Day: 28, IsLeap: IsLeapYear(2022)}, People28FebWithNormalYear},
+		{"28Feb With Leap Year", Dob{Year: 2020, Month: 02, Day: 28, IsLeap: IsLeapYear(2020)}, People28FebWithLeapYear},
 		{"Skipping invalid birthday", Dob{Year: 1982, Month: 02, Day: 22, IsLeap: IsLeapYear(1982)}, PeopleEmpty},
 	}
 
