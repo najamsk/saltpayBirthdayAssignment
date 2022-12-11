@@ -13,7 +13,7 @@ func TestBirthdayService_WithRealRepoListBirthdays(t *testing.T) {
 		t.Error("cant even create repo")
 
 	}
-	s := core.NewBirthDay(r)
+	s := core.NewBirthday(r)
 	res := s.ListBirthdays(core.Dob{})
 
 	if !reflect.DeepEqual(res, []core.Person{}) {

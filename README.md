@@ -32,3 +32,8 @@ Your submission must have:
 Bonus points for following Test-Driven Development.
 
 Please do not overcomplicate the code. You don’t need a web framework, database or message queues for this submission. Keep it simple!
+
+
+## How to run Binary
+* make sure you have data.json on same level as main.go
+* go run main.go
