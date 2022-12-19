@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"salty/core"
 	"strconv"
 	"strings"
@@ -60,7 +60,8 @@ func setupData() ([]core.Person, error) {
 	filepath := parseFileFlag()
 
 	people := []core.Person{}
-	data, err := ioutil.ReadFile(filepath)
+	// data, err := ioutil.ReadFile(filepath)
+	data, err := os.ReadFile(filepath)
 	if err != nil {
 		// log.Printf("Erorr while reading from %s: %v \n", filepath, err)
 		return people, err
@@ -78,6 +79,7 @@ func setupData() ([]core.Person, error) {
 	// transform into our data.Person object
 	for _, v := range lines {
 		// fmt.Printf("record: %#v \n", v)
+		//XXX: parse birthday to Dob object here?
 		p := core.Person{FirstName: v[1], LastName: v[0], Birthday: v[2]}
 		people = append(people, p)
 	}
