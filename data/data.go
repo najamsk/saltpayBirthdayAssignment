@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"salty/core"
+	"strconv"
+	"strings"
 )
 
 type Repo struct {
@@ -21,8 +23,38 @@ func NewRepo() (*Repo, error) {
 	return &Repo{People: p}, nil
 }
 
+func birthdayDobFormat(d string) (core.Dob, error) {
+	dd := strings.Split(d, "/")
+	yy, err := strconv.Atoi(dd[0])
+	if err != nil {
+		return core.Dob{}, core.ErrParsingDate
+	}
+	days, err := strconv.Atoi(dd[2])
+	if err != nil {
+		return core.Dob{}, core.ErrParsingDate
+	}
+	mm, err := strconv.Atoi(dd[1])
+	if err != nil {
+		return core.Dob{}, core.ErrParsingDate
+	}
+
+	dob := core.Dob{Year: yy, Month: mm, Day: days, IsLeap: core.IsLeapYear(yy)}
+	return dob, nil
+}
 func (r *Repo) GetAll() []core.Person {
-	return r.People
+	res := []core.Person{}
+	for _, v := range r.People {
+
+		bd, err := birthdayDobFormat(v.Birthday)
+
+		if err != nil || !bd.Validate() {
+			continue
+		}
+		v.BirthdayDate = bd
+		res = append(res, v)
+
+	}
+	return res
 }
 func setupData() ([]core.Person, error) {
 	filepath := parseFileFlag()

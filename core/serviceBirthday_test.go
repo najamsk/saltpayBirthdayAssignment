@@ -94,40 +94,40 @@ func TestLeapYearTable(t *testing.T) {
 	}
 }
 
-func TestBirthayStringToDobFormat(t *testing.T) {
-	tcs := []struct {
-		description string
-		input       string
-		want        error
-	}{
-		{"empty dob string", "", ErrParsingDate},
-		{"jibberish string", "adfasdf", ErrParsingDate},
-	}
+// func TestBirthayStringToDobFormat(t *testing.T) {
+// 	tcs := []struct {
+// 		description string
+// 		input       string
+// 		want        error
+// 	}{
+// 		{"empty dob string", "", ErrParsingDate},
+// 		{"jibberish string", "adfasdf", ErrParsingDate},
+// 	}
 
-	for _, tc := range tcs {
-		t.Run(tc.description, func(t *testing.T) {
-			_, got := birthdayDobFormat(tc.input)
-			if got != tc.want {
-				t.Errorf("input:%v, want:%v, got:%v \n", tc.input, tc.want, got)
-			}
-		})
-	}
+// 	for _, tc := range tcs {
+// 		t.Run(tc.description, func(t *testing.T) {
+// 			_, got := birthdayDobFormat(tc.input)
+// 			if got != tc.want {
+// 				t.Errorf("input:%v, want:%v, got:%v \n", tc.input, tc.want, got)
+// 			}
+// 		})
+// 	}
 
-	tcsP := []struct {
-		description string
-		input       string
-		want        Dob
-	}{
-		{"valid date as string", "2022/12/11", Dob{Year: 2022, Day: 11, Month: 12}},
-	}
+// 	tcsP := []struct {
+// 		description string
+// 		input       string
+// 		want        Dob
+// 	}{
+// 		{"valid date as string", "2022/12/11", Dob{Year: 2022, Day: 11, Month: 12}},
+// 	}
 
-	for _, tc := range tcsP {
-		t.Run(tc.description, func(t *testing.T) {
-			got, _ := birthdayDobFormat(tc.input)
-			if got != tc.want {
-				t.Errorf("input:%v, want:%v, got:%v \n", tc.input, tc.want, got)
-			}
-		})
-	}
+// 	for _, tc := range tcsP {
+// 		t.Run(tc.description, func(t *testing.T) {
+// 			got, _ := birthdayDobFormat(tc.input)
+// 			if got != tc.want {
+// 				t.Errorf("input:%v, want:%v, got:%v \n", tc.input, tc.want, got)
+// 			}
+// 		})
+// 	}
 
-}
+// }
