@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	fmt.Println("hello")
 	repo, err := data.NewRepo()
 	if err != nil {
 		log.Fatalf("Cant create repo because of error: %v \n", err)

@@ -3,7 +3,6 @@ package data
 import (
 	"encoding/json"
 	"flag"
-	"fmt"
 	"os"
 	"salty/core"
 	"strconv"
@@ -89,6 +88,6 @@ func setupData() ([]core.Person, error) {
 func parseFileFlag() string {
 	iFile := flag.String("file", "data.json", "provide file to read")
 	flag.Parse()
-	fmt.Printf("will read file: %s \n", *iFile)
+	// fmt.Printf("will read file: %s \n", *iFile)
 	return *iFile
 }
